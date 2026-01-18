@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tools Hub By Usama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="glass-header">
+            <h1>tools Hub By Usama</h1>
+            <p>Your premium suite of online utilities</p>
+        </header>
+
+        <div class="tools-grid">
+            <div class="tool-card" data-tool="calculator">
+                <h2><i class="fas fa-calculator"></i> Calculator</h2>
+                <p>Scientific calculator with advanced functions.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="calendar">
+                <h2><i class="fas fa-calendar-alt"></i> Calendar</h2>
+                <p>Holiday calendar with international events.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="clock">
+                <h2><i class="fas fa-clock"></i> World Clock</h2>
+                <p>Live time across major global cities.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="converter">
+                <h2><i class="fas fa-exchange-alt"></i> Converter</h2>
+                <p>Convert units, currency, and data sizes.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="timer">
+                <h2><i class="fas fa-stopwatch"></i> Timer</h2>
+                <p>Precision stopwatch and countdown timer.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="notes">
+                <h2><i class="fas fa-file-alt"></i> Notepad</h2>
+                <p>A simple notepad with auto-save, search, and word count.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="search">
+                <h2><i class="fas fa-search"></i> Quick Search</h2>
+                <p>Fast search across Google, Wiki, and YouTube.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+        </div>
+
+        <div id="tools-section" style="display: none;">
+            <!-- Calculator Tool -->
+            <div id="calculator-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Scientific Calculator</h2>
+                <div class="calculator">
+                    <div class="display">
+                        <div class="previous-operand" id="previous"></div>
+                        <div class="current-operand" id="current">0</div>
+                    </div>
+                    <div class="buttons">
+                        <!-- Row 1: Scientific functions -->
+                        <button class="btn function" data-action="sin">sin</button>
+                        <button class="btn function" data-action="cos">cos</button>
+                        <button class="btn function" data-action="tan">tan</button>
+                        <button class="btn function" data-action="log">log</button>
+                        
+                        <!-- Row 2: Scientific functions -->
+                        <button class="btn function" data-action="ln">ln</button>
+                        <button class="btn function" data-action="sqrt">√</button>
+                        <button class="btn function" data-action="power">x²</button>
+                        <button class="btn function" data-action="pow">xʸ</button>
+                        
+                        <!-- Row 3: Constants and operators -->
+                        <button class="btn function" data-action="pi">π</button>
+                        <button class="btn function" data-action="e">e</button>
+                        <button class="btn operator" data-action="clear">C</button>
+                        <button class="btn operator" data-action="delete">DEL</button>
+                        
+                        <!-- Row 4: Numbers 7-9 and division -->
+                        <button class="btn number" data-number="7">7</button>
+                        <button class="btn number" data-number="8">8</button>
+                        <button class="btn number" data-number="9">9</button>
+                        <button class="btn operator" data-action="divide">/</button>
+                        
+                        <!-- Row 5: Numbers 4-6 and multiply -->
+                        <button class="btn number" data-number="4">4</button>
+                        <button class="btn number" data-number="5">5</button>
+                        <button class="btn number" data-number="6">6</button>
+                        <button class="btn operator" data-action="multiply">×</button>
+                        
+                        <!-- Row 6: Numbers 1-3 and subtract -->
+                        <button class="btn number" data-number="1">1</button>
+                        <button class="btn number" data-number="2">2</button>
+                        <button class="btn number" data-number="3">3</button>
+                        <button class="btn operator" data-action="subtract">-</button>
+                        
+                        <!-- Row 7: 0, decimal, percent, add -->
+                        <button class="btn number" data-number="0">0</button>
+                        <button class="btn number" data-number=".">.</button>
+                        <button class="btn operator" data-action="percent">%</button>
+                        <button class="btn operator" data-action="add">+</button>
+                        
+                        <!-- Row 8: Negate and equals (spans remaining columns) -->
+                        <button class="btn operator" data-action="negate">+/-</button>
+                        <button class="btn equals span-3" data-action="equals">=</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Tool -->
+            <div id="calendar-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Holiday Calendar</h2>
+                <div class="calendar-controls">
+                    <select id="country-select" class="glass-select">
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                    </select>
+                    <button id="prev-month" class="glass-btn"><</button>
+                    <span id="current-month-year"></span>
+                    <button id="next-month" class="glass-btn">></button>
+                </div>
+                <div id="calendar-grid" class="calendar-grid"></div>
+                <div id="holiday-details" class="glass-details"></div>
+            </div>
+
+            <!-- World Clock Tool -->
+            <div id="clock-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>World Clock</h2>
+                <div class="world-clock-grid">
+                    <div class="clock-item glass-card" data-timezone="UTC">
+                        <h3>UTC</h3>
+                        <div class="clock-time"></div>
+                    </div>
+                    <div class="clock-item glass-card" data-timezone="America/New_York">
+                        <h3>New York</h3>
+                        <div class="clock-time"></div>
+                    </div>
+                    <div class="clock-item glass-card" data-timezone="Europe/London">
+                        <h3>London</h3>
+                        <div class="clock-time"></div>
+                    </div>
+                    <div class="clock-item glass-card" data-timezone="Asia/Tokyo">
+                        <h3>Tokyo</h3>
+                        <div class="clock-time"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Converter Tool -->
+            <div id="converter-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Unit Converter</h2>
+                <div class="converter-tabs">
+                    <button class="tab-btn active" data-tab="length">Length</button>
+                    <button class="tab-btn" data-tab="weight">Weight</button>
+                    <button class="tab-btn" data-tab="temperature">Temperature</button>
+                    <button class="tab-btn" data-tab="speed">Speed</button>
+                    <button class="tab-btn" data-tab="data">Data</button>
+                    <button class="tab-btn" data-tab="currency">Currency</button>
+                </div>
+                <div class="converter-inputs">
+                    <input type="number" id="from-value" class="glass-input" placeholder="From">
+                    <select id="from-unit" class="glass-select"></select>
+                    <span class="equals">=</span>
+                    <input type="text" id="to-value" class="glass-input" readonly>
+                    <select id="to-unit" class="glass-select"></select>
+                </div>
+            </div>
+
+            <!-- Timer Tool -->
+            <div id="timer-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Stopwatch & Timer</h2>
+                <div class="st-tabs">
+                    <button class="tab-btn active glass-btn" data-tab="stopwatch">Stopwatch</button>
+                    <button class="tab-btn glass-btn" data-tab="timer">Timer</button>
+                </div>
+                <div class="st-display-container glass-card">
+                    <div id="st-display">00:00:00.00</div>
+                </div>
+                <div class="timer-inputs">
+                    <input type="number" id="timer-hours" class="glass-input" placeholder="HH" min="0">
+                    <input type="number" id="timer-minutes" class="glass-input" placeholder="MM" min="0" max="59">
+                    <input type="number" id="timer-seconds" class="glass-input" placeholder="SS" min="0" max="59">
+                </div>
+                <div class="st-controls">
+                    <button id="st-start" class="glass-btn">Start</button>
+                    <button id="st-pause" class="glass-btn">Pause</button>
+                    <button id="st-reset" class="glass-btn">Reset</button>
+                </div>
+            </div>
+
+            <!-- Notes Tool -->
+            <div id="notes-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>📝 My Notepad</h2>
+
+                <!-- Search Box -->
+                <div class="search-box">
+                  <input type="text" id="searchInput" placeholder="🔍 Search notes...">
+                  <button id="searchBtn">Search</button>
+                  <button id="clearSearchBtn">Clear</button>
+                </div>
+
+                <!-- Editor -->
+                <div class="editor">
+                  <div id="highlightLayer"></div>
+                  <textarea id="note" placeholder="Start writing your notes here..."></textarea>
+                </div>
+
+                <!-- Counter -->
+                <div class="counter">
+                  <span id="wordCount">Words: 0</span> | 
+                  <span id="charCount">Characters: 0</span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="buttons">
+                  <button id="saveBtn">💾 Save</button>
+                  <button id="clearBtn">🧹 Clear</button>
+                  <button id="downloadBtn">⬇ Download</button>
+                  <button id="modeToggle">🌗 Toggle Mode</button>
+                </div>
+
+                <!-- Status Message -->
+                <p id="statusMsg"></p>
+            </div>
+
+            <!-- Search Tool -->
+            <div id="search-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Quick Search</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input" class="glass-input" placeholder="Enter search query...">
+                    <div class="search-buttons">
+                        <button class="glass-btn" data-search="google">Google</button>
+                        <button class="glass-btn" data-search="wikipedia">Wikipedia</button>
+                        <button class="glass-btn" data-search="youtube">YouTube</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
