@@ -1,0 +1,771 @@
+/* --- Basic Setup & Theming --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #1a1a2e;
+    --primary-color: #e0e0e0;
+    --secondary-color: #b3b3b3;
+    --accent-color: #4d84f3;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    background-color: #000000;
+    color: var(--primary-color);
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment: fixed;
+    background-size: 200% 200%;
+    animation: liquid-bg 15s ease infinite;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- Glassmorphism Elements --- */
+.glass-header, .glass-card, .glass-btn, .glass-select, .glass-input, .glass-details, .tool-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px var(--shadow-color);
+}
+
+/* --- Header --- */
+.glass-header {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.glass-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #4d84f3 25%,
+        #b3b3b3 50%,
+        #4d84f3 75%,
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquid-text 3s linear infinite;
+    text-shadow: 0 0 15px rgba(77, 132, 243, 0.4);
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.1));
+}
+
+.glass-header p {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes liquid-bg {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes liquid-text {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- Main Hub Grid --- */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tool-card {
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 40px var(--shadow-color);
+}
+
+/* Ripple effect from JS */
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%) scale(0);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.2;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.tool-card:hover::before {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+}
+
+
+.tool-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.tool-card h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+}
+
+.tool-card p {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.use-tool-btn {
+    width: 80%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* --- General Tool Interface Styles --- */
+.tool-interface {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tool-interface h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+}
+
+/* --- Buttons, Inputs, Selects --- */
+.glass-btn, .tab-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.glass-btn:hover, .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-btn:active {
+    transform: scale(0.95);
+}
+
+.tab-btn.active {
+    background: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+.glass-input, .glass-select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+}
+
+.glass-input::placeholder {
+    color: var(--secondary-color);
+}
+
+.glass-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e0e0e0' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 1rem auto;
+}
+
+/* --- Specific Tool Styles --- */
+
+/* Calculator */
+.calculator {
+    background: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.display {
+    background: #2d2d2d;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: #888;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    min-height: 25px;
+}
+
+.current-operand {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    background: #3a3a3a;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #4a4a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn.number {
+    background: #505050;
+}
+
+.btn.number:hover {
+    background: #606060;
+}
+
+.btn.operator {
+    background: #ff9500;
+}
+
+.btn.operator:hover {
+    background: #ffb143;
+}
+
+.btn.function {
+    background: #5e5ce6;
+    font-size: 1rem;
+}
+
+.btn.function:hover {
+    background: #7c7aff;
+}
+
+.btn.equals {
+    background: #34c759;
+    grid-column: span 1;
+}
+
+.btn.span-3 {
+    grid-column: span 3;
+}
+
+.btn.equals:hover {
+    background: #5dd879;
+}
+
+/* Responsive Design for Calculator */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .current-operand {
+        font-size: 1.5rem;
+    }
+    
+    .previous-operand {
+        font-size: 1rem;
+    }
+}
+
+/* Calendar */
+#calendar-tool {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+#current-month-year {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.calendar-day {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    min-height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+.calendar-day:nth-child(-n+7) {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+.calendar-day.other-month {
+    opacity: 0.4;
+}
+.calendar-day.holiday {
+    /* Removed full background to look more like Google Calendar */
+    font-weight: normal;
+}
+.calendar-day.current-day {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(77, 132, 243, 0.3);
+}
+.date-number {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.event-name {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    margin-top: 2px;
+    text-align: left;
+    color: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+/* Google Calendar Style Event Colors */
+.evt-public-holiday {
+    background-color: #34a853; /* Google Green */
+}
+.evt-national-holiday {
+    background-color: #ea4335; /* Google Red */
+}
+.evt-festival {
+    background-color: #8e24aa; /* Purple for Festivals */
+}
+.custom-event-label {
+    background-color: #039be5; /* Google Blue for user notes */
+    font-style: normal;
+}
+#holiday-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* World Clock */
+.world-clock-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.clock-item {
+    padding: 1.5rem;
+    text-align: center;
+}
+.clock-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.clock-time {
+    font-size: 1.75em;
+    margin-top: 0.5rem;
+    font-family: monospace;
+}
+
+/* Converter */
+#converter-tool {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.converter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.converter-inputs {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr auto 2fr 1.5fr;
+    gap: 1rem;
+    align-items: center;
+}
+.converter-inputs .equals {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Timer */
+#timer-tool {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.st-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.st-display-container {
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+#st-display {
+    font-size: 3em;
+    font-family: monospace;
+}
+.timer-inputs {
+    display: none; /* Controlled by JS */
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.timer-inputs input {
+    width: 70px;
+    text-align: center;
+}
+.st-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.st-controls button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Notes */
+/* Notepad */
+#notes-tool {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: notepad-fadeIn 1s ease-in-out;
+    margin: 0 auto;
+}
+
+#notes-tool.dark {
+  color: #eee;
+}
+
+#notes-tool h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  animation: notepad-slideDown 0.8s ease;
+}
+
+#notes-tool .search-box {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+#notes-tool .search-box input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+#notes-tool .search-box button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+  transition: 0.3s;
+}
+
+#notes-tool .search-box button:hover {
+  background: #764ba2;
+  color: #fff;
+}
+
+#notes-tool .editor {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+#notes-tool #highlightLayer,
+#notes-tool textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#notes-tool #highlightLayer {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: transparent;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+#notes-tool mark {
+  background: yellow;
+  color: black;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+#notes-tool textarea {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  resize: none;
+  outline: none;
+  border: none;
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#notes-tool.dark textarea {
+  background: rgba(0, 0, 0, 0.6);
+  color: #eee;
+}
+
+#notes-tool .counter {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+#notes-tool .buttons {
+  margin-top: 15px;
+}
+
+#notes-tool .buttons button {
+  background: #fff;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  margin: 5px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: notepad-fadeUp 1s ease;
+}
+
+#notes-tool .buttons button:hover {
+  background: #764ba2;
+  color: #fff;
+  transform: scale(1.08) rotate(-1deg);
+}
+
+#notes-tool.dark .buttons button {
+  background: #333;
+  color: #eee;
+}
+
+#notes-tool.dark .buttons button:hover {
+  background: #667eea;
+  color: #fff;
+}
+
+#notes-tool #statusMsg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #00ff99;
+  transition: opacity 0.5s ease;
+}
+
+/* Search */
+#search-tool {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.search-container input {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    .glass-header h1 {
+        font-size: 2rem;
+    }
+    .back-btn {
+        position: static;
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .tool-interface {
+        padding: 1rem;
+    }
+    .converter-inputs {
+        grid-template-columns: 1fr;
+    }
+    .converter-inputs .equals {
+        transform: rotate(90deg);
+    }
+    .calculator-buttons {
+        gap: 0.25rem;
+    }
+    .calculator-display input {
+        font-size: 2rem;
+    }
+    .notes-controls {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    .tool-interface h2 {
+        font-size: 1.5rem;
+    }
+    #st-display {
+        font-size: 2.2em;
+    }
+    .st-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .st-controls button {
+        width: 100%;
+    }
+    .search-buttons {
+        flex-direction: column;
+    }
+    .search-buttons .glass-btn {
+        width: 100%;
+    }
+}
