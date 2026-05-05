@@ -1,0 +1,38 @@
+/* --- Existing Styles Preserved --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+:root {
+    --bg-color: #1a1a2e;
+    --primary-color: #e0e0e0;
+    --accent-color: #4d84f3;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: var(--primary-color);
+    background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%);
+    min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.glass-header { text-align: center; margin-bottom: 3rem; }
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.tool-card { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem; text-align: center; transition: 0.3s; }
+.glass-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: #white; padding: 0.8rem 1.5rem; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+.glass-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 12px; border-radius: 10px; color: white; }
+
+/* --- PDF Tool Additions Matched to Theme --- */
+.pdf-main-container { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
+.pdf-upload-zone { border: 2px dashed var(--glass-border); border-radius: 15px; padding: 2rem; cursor: pointer; margin-bottom: 1rem; }
+.pdf-upload-zone i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 10px; }
+.pdf-actions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.action-btn { flex-direction: column; display: flex; align-items: center; gap: 5px; font-size: 0.85rem; }
+.file-item { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; margin-bottom: 5px; display: flex; justify-content: space-between; }
+.pdf-status-msg { padding: 10px; border-radius: 8px; margin-bottom: 10px; text-align: center; font-size: 0.9rem; }
+
+/* Android/Desktop Optimizations */
+@media (max-width: 768px) {
+    .container { padding: 1rem; }
+    .pdf-actions-grid { grid-template-columns: 1fr 1fr; }
+    .tool-card { padding: 1.5rem; }
+}
