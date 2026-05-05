@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tools Hub By Usama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="glass-header">
+            <h1>tools Hub By Usama</h1>
+            <p>Your premium suite of online utilities</p>
+        </header>
+
+        <div class="tools-grid">
+            <div class="tool-card" data-tool="calculator">
+                <h2><i class="fas fa-calculator"></i> Calculator</h2>
+                <p>Scientific calculator with advanced functions.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="calendar">
+                <h2><i class="fas fa-calendar-alt"></i> Calendar</h2>
+                <p>Holiday calendar with international events.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="clock">
+                <h2><i class="fas fa-clock"></i> World Clock</h2>
+                <p>Track time across multiple global zones.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="converter">
+                <h2><i class="fas fa-exchange-alt"></i> Unit Converter</h2>
+                <p>Instant conversion for weight, length, and more.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="notes">
+                <h2><i class="fas fa-sticky-note"></i> Smart Notes</h2>
+                <p>Secure, cloud-synced notepad with formatting.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <div class="tool-card" data-tool="search">
+                <h2><i class="fas fa-search"></i> Quick Search</h2>
+                <p>Fast multi-engine search utility.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+
+            <!-- PDF Toolkit Card -->
+            <div class="tool-card" data-tool="pdf">
+                <h2><i class="fas fa-file-pdf"></i> PDF Toolkit</h2>
+                <p>Merge and Rotate PDF files directly in your browser.</p>
+                <button class="use-tool-btn glass-btn">Use Tool</button>
+            </div>
+        </div>
+
+        <div id="tools-section">
+            <!-- PDF Toolkit Interface -->
+            <div id="pdf-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>PDF Toolkit</h2>
+                <div id="pdf-toolkit-container" class="glass-card" style="padding: 2rem; max-width: 800px; margin: 2rem auto;">
+                    <div id="pdf-status"></div>
+                    <div class="pdf-upload-zone" id="pdf-drop-zone">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; margin-bottom: 1rem; color: var(--accent-color);"></i>
+                        <p>Drag & Drop PDFs or Click to Select</p>
+                        <input type="file" id="pdf-input" multiple accept=".pdf" style="display: none;">
+                    </div>
+                    <div id="pdf-file-list" class="file-list-container"></div>
+                    <div class="pdf-actions" style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <button id="btn-pdf-merge" class="glass-btn">Merge PDFs</button>
+                        <button id="btn-pdf-rotate" class="glass-btn">Rotate 90°</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Tool Interface -->
+            <div id="search-tool" class="tool-interface" style="display: none;">
+                <button class="back-btn glass-btn">Back to Hub</button>
+                <h2>Quick Search</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input" class="glass-input" placeholder="Enter search query...">
+                    <div class="search-buttons">
+                        <button class="glass-btn" data-search="google">Google</button>
+                        <button class="glass-btn" data-search="wikipedia">Wikipedia</button>
+                        <button class="glass-btn" data-search="youtube">YouTube</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other interfaces would go here... -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
