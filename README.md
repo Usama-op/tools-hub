@@ -32,9 +32,9 @@ This project is designed to make everyday tasks faster, easier, and more accessi
 
 ## 📸 Preview
 
-![Tool Hub Preview](<img width="200" height="200" alt="17781257997109108173685976217931" src="https://github.com/user-attachments/assets/4e74258e-944d-43cb-8b6f-8bf07989db5a" />)
+![Tool Hub Preview](preview.png)
   
-*(Add your screenshot here)*
+*()*
 
 ---
 
