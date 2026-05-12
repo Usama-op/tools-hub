@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0f172a">
+    <title>Offline | ToolsHub Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .offline-card {
+            max-width: 450px;
+            padding: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .offline-card i {
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 15px var(--glow-color));
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card offline-card">
+        <i class="fas fa-wifi-slash"></i>
+        <h1>You're Offline</h1>
+        <p>It seems you don't have an active internet connection. Some tools might still work if they were cached!</p>
+        <br>
+        <button onclick="window.location.reload()" class="glass-btn">
+            Try Again
+        </button>
+    </div>
+</body>
+</html>
