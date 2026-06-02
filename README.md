@@ -32,9 +32,9 @@ This project is designed to make everyday tasks faster, easier, and more accessi
 
 ## 📸 Preview
 
-![Tool Hub Preview]()
+![Tool Hub Preview]
   
-*()*
+*(https://github.com/Usama-op/tools-hub/icons-imgs/readme_img.jpg)*
 
 ---
 
