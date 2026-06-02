@@ -32,9 +32,7 @@ This project is designed to make everyday tasks faster, easier, and more accessi
 
 ## 📸 Preview
 
-![Tool Hub Preview]
-  
-(icons-imgs/readme_img.jpg)
+![Tool Hub Preview](icons-imgs/readme_img.jpg)
 
 ---
 
