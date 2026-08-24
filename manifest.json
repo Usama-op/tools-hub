@@ -1,0 +1,101 @@
+{
+  "name": "ToolsHub Premium",
+  "short_name": "ToolsHub",
+  "description": "All-in-One Utility Suite for Productivity - Calculator, Calendar, PDF Tools & More",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "scope": "./",
+  "lang": "en",
+  "categories": ["productivity", "utilities", "business"],
+  "icons": [
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons-imgs/convertico-toolhubicon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calculator",
+      "short_name": "Calc",
+      "description": "Scientific Calculator",
+      "url": "./index.html?tool=calculator",
+      "icons": [{
+        "src": "./icons-imgs/convertico-toolhubicon_96x96.png",
+        "sizes": "96x96"
+      }]
+    },
+    {
+      "name": "PDF Tools",
+      "short_name": "PDF",
+      "description": "PDF Toolkit",
+      "url": "./index.html?tool=pdftoolkit",
+      "icons": [{
+        "src": "./icons-imgs/convertico-toolhubicon_96x96.png",
+        "sizes": "96x96"
+      }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./icons-imgs/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ToolsHub on Desktop"
+    },
+    {
+      "src": "./icons-imgs/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "ToolsHub on Mobile"
+    }
+  ]
+}
